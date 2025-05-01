@@ -1,0 +1,359 @@
+{% extends "layout.html" %}
+{%block predict%}
+
+{%if prediction_text == "Acute Stress"%}
+
+<div class="container">
+    <h2 style="margin-top:15px ;">Your stress level is <b>{{prediction_text}}</b></h2>
+    <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" aria-valuenow=100" aria-valuemin="0" aria-valuemax="100"
+            style="width:30%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+    <br>
+
+    <img src="{{url_for('static',filename='images/acute_stress.jpg')}}" alt="Acute Stress" width="100%" />
+
+
+    <h4 style="line-height: 1.5;margin-top: 20px;">An acute stress reaction occurs when a person experiences certain
+        symptoms after a particularly stressful event. The word 'acute' means the symptoms develop quickly but do not
+        last long. The events are usually very severe and an acute stress reaction typically occurs after an unexpected
+        life crisis. This might be, for example, a serious accident, sudden bereavement, or other traumatic events.
+        Acute stress reactions may also occur as a consequence of sexual assault or domestic violence.
+
+        Acute stress reactions have been seen in people who experience terrorist incidents, major disasters, or war.
+        Military personnel are at more risk as a result of extreme experiences during conflicts.
+
+        An acute stress reaction usually resolves within 2 to 3 days (often hours).</h4>
+    <br>
+    <h1 style="text-decoration: underline;">Symptoms of an acute stress : </h1>
+    <!-- <hr style=" display: block; overflow: hidden; border-style: inset; border-width: 2px;"> -->
+
+    <h4>Symptoms usually develop quickly over minutes or hours - reacting to the stressful event. Symptoms of acute
+        stress reactions may include the following:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Psychological symptoms such as anxiety, low mood, irritability, emotional ups
+                and downs, poor sleep, poor concentration, wanting to be alone.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Recurrent dreams or flashbacks, which can be intrusive and unpleasant</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Avoidance of anything that will trigger memories. This may mean avoiding
+                people, conversations, or other situations, as they cause distress and anxiety.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Reckless or aggressive behaviour that may be self-destructive.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Feeling emotionally numb and detached from others.</h4>
+        </li>
+
+    </ul>
+
+    <h1 style="text-decoration: underline; margin-top: 20px;">Prevention : </h1>
+    <h4>It is not always possible to avoid experiencing traumatic events. However, there are ways to reduce the risk of
+        developing ASD afterward.<br>These can include:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Consulting a doctor or mental health professional following a traumatic event
+            </h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Seeking support from family and friends</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Getting treatment for other mental health disorders</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Working with a behavioral coach to develop effective coping mechanisms</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Getting preparation training if a person’s job involves a high risk of
+                exposure to traumatic events</h4>
+        </li>
+
+    </ul>
+    <br>
+    <br>
+
+</div>
+{%elif prediction_text == "Episodic Acute Stress"%}
+<!-- <div class="container">
+            <h1>Your stress level is {{prediction_text}}</h1>
+        </div> -->
+<div class="container">
+    <h2>Your stress level is <b>{{prediction_text}}</b></h2>
+    <div class="progress">
+        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow=100" aria-valuemin="0" aria-valuemax="100"
+            style="width:60%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+    <br>
+
+    <img src="{{url_for('static',filename='images/episodic_acute_stress.jpg')}}" alt="Episodic-acute Stress"
+        width="100%" />
+
+    <h4 style="line-height: 1.5;margin-top: 20px;">Episodic acute stress occurs when someone gets frequent bouts of
+        acute stress. People with this kind of stress will oftentimes take on more responsibilities and projects than
+        they can handle. They may seem like they’re constantly in a rush, always running late, and are disorganized.
+        People with episodic acute stress can also be hostile towards others and have strained relationships.</h4>
+    <br>
+    <h1 style="text-decoration: underline;">Symptoms of an Episodic-acute stress : </h1>
+    <!-- <hr style=" display: block; overflow: hidden; border-style: inset; border-width: 2px;"> -->
+
+    <h4>Symptoms usually develop quickly over minutes or hours - reacting to the stressful event. Symptoms of
+        episodic-acute stress reactions may include the following:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Psychological symptoms such as anxiety, low mood, irritability, emotional ups
+                and downs, poor sleep, poor concentration, wanting to be alone.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Recurrent dreams or flashbacks, which can be intrusive and unpleasant</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Avoidance of anything that will trigger memories. This may mean avoiding
+                people, conversations, or other situations, as they cause distress and anxiety.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Reckless or aggressive behaviour that may be self-destructive.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Feeling emotionally numb and detached from others.</h4>
+        </li>
+
+    </ul>
+
+    <h1 style="text-decoration: underline; margin-top: 20px;">Prevention : </h1>
+    <h4>It is not always possible to avoid experiencing traumatic events. However, there are ways to reduce the risk of
+        developing ASD afterward.<br>These can include:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Eat a balanced diet</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Seeking support from family and friends</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Getting treatment for other mental health disorders</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Working with a behavioral coach to develop effective coping mechanisms</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Exercise regularly</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Make getting better sleep a priority</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Practice relaxation techniques like meditation, deep breathing, or progressive
+                muscle relaxation – yoga is a great way to blend exercise with deep breathing.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Find a hobby and make time to enjoy it</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Have a “laugh folder” on your computer full of things that make you smile</h4>
+        </li>
+
+
+
+    </ul>
+    <br>
+    <br>
+
+</div>
+
+{%elif prediction_text == "No Stress"%}
+<!-- <div class="container">
+            <h1>Your stress level is {{prediction_text}}</h1>
+        </div> -->
+<div class="container">
+    <h2>Your stress level is <b>{{prediction_text}}</b></h2>
+    <div class="progress">
+        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow=100" aria-valuemin="0" aria-valuemax="100"
+            style="width:0%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+    <br>
+
+    <img src="{{url_for('static',filename='images/no_stress.png')}}" alt="No Stress" width="100%" />
+
+    <h4 style="line-height: 1.5;margin-top: 20px;">Hurray! You have no stress! Life's looking like a smooth ride on a
+        sunny beach with a coconut in hand. You're cool, calm, and collected - basically the human version of a deep
+        breath. Deadlines? Handled. Tasks? Checked off. Mood? Immaculate. You're the kind of person who makes others
+        wonder, "How are they so chill?" Keep doing what you're doing - your brain is basically on vacation while still
+        getting things done!</h4>
+    <br>
+    <h1 style="text-decoration: underline;">Symptoms of No Stress : </h1>
+    <!-- <hr style=" display: block; overflow: hidden; border-style: inset; border-width: 2px;"> -->
+
+    <h4>When you're stress-free, life feels effortlessly smooth, and you radiate positivity in every little thing you
+        do. Symptoms of No Stress:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Smiling for no reason — like, all the time.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Waking up like you're in a wellness ad.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Brain? Clear. Mind? Zen. Mood? Glowing.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">You radiate "I got this" energy.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">People ask, "What's your secret?" and you just wink.</h4>
+        </li>
+
+    </ul>
+
+    <h1 style="text-decoration: underline; margin-top: 20px;">Prevention? Nah, you're already a stress-free legend!
+    </h1>
+    <h4>But if you want to stay this chill:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Keep doing what you're doing (seriously, don't stop).</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Stay hydrated like the majestic sea turtle you are.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Say no to chaos and yes to naps.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Treat yourself — you've earned it!</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Exercise regularly</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Sprinkle kindness like confetti.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Keep that laugh folder updated!</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:20px ;">Surround yourself with good vibes and even better people.</h4>
+        </li>
+
+
+
+    </ul>
+    <br>
+    <br>
+
+</div>
+{%else%}
+<!-- <div class="container">
+            <h1>Your stress level is {{prediction_text}}</h1>
+        </div> -->
+<div class="container">
+    <h2>Your stress level is <strong>{{prediction_text}}</strong></h2>
+    <div class="progress">
+        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow=100" aria-valuemin="0" aria-valuemax="100"
+            style="width:90%">
+            <span class="sr-only">70% Complete</span>
+        </div>
+    </div>
+    <br>
+
+    <img src="{{url_for('static',filename='images/chronic_stress.jpg')}}" alt="Chronic Stress" width="100%" />
+
+    <h4 style="line-height: 1.5;margin-top: 20px;">Causes of chronic stress could include poverty, a dysfunctional
+        marriage or family, or a deeply dissatisfying job. In today's hectic society, there are many possible sources.
+        Chronic stress slowly drains a person’s psychological resources and damages their brains and bodies. “People
+        experiencing chronic stress might feel incapable of changing their situations,” Sinha says.</h4>
+    <br>
+    <h1 style="text-decoration: underline;">Symptoms of an Chronic stress : </h1>
+    <!-- <hr style=" display: block; overflow: hidden; border-style: inset; border-width: 2px;"> -->
+
+    <h4>Symptoms usually develop quickly over minutes or hours - reacting to the stressful event. Symptoms of chronic
+        stress reactions may include the following:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Psychological symptoms such as anxiety, low mood, irritability, emotional ups
+                and downs, poor sleep, poor concentration, wanting to be alone.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Insomnia or sleepiness </h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Unfocused or cloudy thinking </h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Increased alcohol or drug use </h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Change in emotional responses to others </h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Low energy </h4>
+        </li>
+
+
+    </ul>
+
+    <h1 style="text-decoration: underline; margin-top: 20px;">Prevention : </h1>
+    <h4>It is not always possible to avoid experiencing traumatic events. However, there are ways to reduce the risk of
+        developing ASD afterward.<br>These can include:</h4>
+    <ul>
+        <li>
+            <h4 style="margin-top:20px ;">Eat a balanced diet</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Seeking support from family and friends</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Getting treatment for other mental health disorders</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Working with a behavioral coach to develop effective coping mechanisms</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Exercise regularly</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Make getting better sleep a priority</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Practice relaxation techniques like meditation, deep breathing, or progressive
+                muscle relaxation – yoga is a great way to blend exercise with deep breathing.</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Find a hobby and make time to enjoy it</h4>
+        </li>
+        <li>
+            <h4 style="margin-top:15px ;">Have a “laugh folder” on your computer full of things that make you smile</h4>
+        </li>
+
+
+
+    </ul>
+    <br>
+    <br>
+
+</div>
+<div
+    style="border: 1px solid #ebe8e8; border-radius: 10px; padding: 15px; margin-top: 30px; background-color: #747373;">
+    <p style="font-style: italic; font-size: 16px;">
+        Disclaimer: This is not a substitute for a professional medical diagnosis. If you require medical assistance or
+        a proper evaluation,
+        <a href="https://medicasapp.com/in/doctors/dr-vaddi-rohit-psychiatry/" target="_blank"
+            style="color: #022d5b; text-decoration: underline;">click here</a> to consult a doctor.
+    </p>
+    <p style="font-size: 12px; margin-top: 10px;">
+        For scheduling a doctor’s appointment at your preferred location, please email us at
+        <a href="mailto:stressmaster@gmail.com">stressmaster@gmail.com</a>.
+    </p>
+</div>
+
+{%endif%}
+{%endblock%}
