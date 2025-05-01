@@ -1,82 +1,126 @@
 {% extends "layout.html" %}
+
 {% block content %}
+<!-- User Info -->
+<h2>Welcome, {{ current_user.username }}!</h2>
+<p><b>Last Login:</b> {{ current_user.created_at }}</p>
 
-<br>
-<b>You are logged in: </b>
-<br>
-<a href="{{ url_for('logout') }}">Logout</a> -->
-
-<strong>user id: </strong>
-{{ current_user.id }}</br>
-<strong>Username: </strong>
-{{ current_user.username }}</br>
-<strong>Email: </strong>
-{{ current_user.email }}</br>
-<strong>Account Created at: </strong>
-{{ current_user.created_at }}</br> -->
-</br>
-</br>
-{% if current_user.username == "admin" %}
-<h3>Admin Dashboard</h3></br>
-<div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-dark">Add new students</h5>
-        <p class="card-text"></p>
-        <a href="#" class="btn btn-primary">Add</a>
-      </div>
-    </div>
+<!-- Mood Tracker -->
+<h4>Daily Mood Check-in</h4>
+<form method="POST" action="{{ url_for('mood_checkin') }}">
+  <div class="form-group">
+    <label for="mood">Select your mood</label>
+    <select name="mood" class="form-control" required>
+      <option value="">Select your mood</option>
+      <option value="😃">Happy</option>
+      <option value="🙂">Good</option>
+      <option value="😐">Okay</option>
+      <option value="🙁">Sad</option>
+      <option value="😢">Very Sad</option>
+    </select>
   </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-dark">View Students</h5>
-        <p class="card-text"></p>
-        <a href="{{ url_for('view', type='student') }}" class="btn btn-primary">View</a>
-      </div>
-    </div>
+  <br>
+  <div class="form-group">
+    <label for="journal">Journal Entry</label>
+    <textarea name="journal" class="form-control" placeholder="Write a short journal..." rows="3" cols="50"></textarea>
   </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-dark">Update Students Profile</h5>
-        <p class="card-text"></p>
-        <a href="#" class="btn btn-primary">Update</a>
-      </div>
-    </div>
+  <br>
+  <div class="form-group">
+    <label for="stress_level">Select Stress Level</label>
+    <select name="stress_level" class="form-control" required>
+      <option value="">Select your stress level</option>
+      <option value="No Stress">No Stress</option>
+      <option value="Acute Stress">Acute Stress</option>
+      <option value="Episodic Acute Stress">Episodic Acute Stress</option>
+      <option value="Chronic Stress">Chronic Stress</option>
+    </select>
   </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit Mood</button>
+</form>
+
+<hr>
+
+<!-- Stress Level Progress Chart -->
+<h4>Stress Level Progress</h4>
+<canvas id="progressChart"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('progressChart').getContext('2d');
+  const progressChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: {{ dates | safe }},
+  datasets: [{
+    label: 'Stress Level Score',
+    data: {{ scores | safe }},
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+      }]
+    },
+  options: {
+    responsive: true,
+      scales: {
+      x: {
+        title: {
+          display: true,
+            text: 'Date'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+            text: 'Stress Level'
+        },
+        min: 0,
+          max: 9 // Adjust according to the max level of stress score
+      }
+    }
+  }
+  });
+</script>
+
+<hr>
+
+<!-- Previous Test Results -->
+<h4>Previous Test Results</h4>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Stress Level</th>
+      <th>Score</th>
+      <th>Recommendation</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for result in results %}
+    <tr>
+      <td>{{ result.date.strftime('%Y-%m-%d') }}</td>
+      <td>{{ result.stress_level }}</td>
+      <td>{{ result.score }}</td>
+      <td>{{ result.recommendation }}</td>
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
 
 
+<a href="{{ url_for('download_report') }}" class="btn btn-success">Download PDF Report</a>
 
-</div>
+<hr>
 
-<br>
-<div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-dark">Add Admins</h5>
-        <p class="card-text"></p>
-        <a href="{{ url_for('add_admin') }}" class="btn btn-primary">Add</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title text-dark">View Admins</h5>
-        <p class="card-text"></p>
-        <a href="{{ url_for('view', type='admin') }}" class="btn btn-primary">View</a>
-      </div>
-    </div>
-  </div>
+<!-- Helpful Resources Section -->
+<h4>Helpful Resources</h4>
+<ul>
+  <li><a href="https://youtu.be/8TTABLdGCKI?si=uB8SKnP9eGjqtw5z">Breathing Exercise Video</a></li>
+  <li><a href="https://www.healthline.com/nutrition/16-ways-relieve-stress-anxiety">Stress-Relief Tips</a></li>
+  <li><a href="https://www.mgmt.ucl.ac.uk/blog/five-tips-maintaining-healthy-study-life-balance">Study-Life Balance
+      Articles</a></li>
+  <li><a href="https://www.motivationalcheck.com/">Motivational Blogs</a></li>
+</ul>
 
-
-
-
-</div>
-{% else %}
-<h1>Student Dashboard: </h1>
-{% endif %}
-{% endblock content %}
+{% endblock %}
